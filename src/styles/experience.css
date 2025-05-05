@@ -1,0 +1,21 @@
+h2 {
+  color: rgb(103, 125, 106);
+  text-transform: uppercase;
+}
+
+.experience {
+  width: 45%;
+  max-width: 500px;
+}
+
+.experience-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.experience-inputs input {
+  width: 100%;
+}
+
