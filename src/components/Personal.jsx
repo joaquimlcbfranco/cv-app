@@ -6,7 +6,7 @@ function Personal() {
 		firstName: "John",
 		lastName: "Doe",
 		email: "johndoe@example.com",
-		phoneNumber: "(+000) 123 456 789",
+		phoneNumber: "123-456-789",
 	});
 
 	const handleChange = (e, id) => {
@@ -16,7 +16,7 @@ function Personal() {
 			setPerson({ ...person, lastName: e.target.value });
 		} else if (id === "email") {
 			setPerson({ ...person, email: e.target.value });
-		} else if (id === "tel") {
+		} else if (id === "phone") {
 			setPerson({ ...person, phoneNumber: e.target.value });
 		}
 	};
@@ -25,16 +25,16 @@ function Personal() {
 		<>
 			<section className="personal">
 				<div className="personal-inputs">
-					<h2>Personal Information</h2>
+					<h2>Personal</h2>
 					<Input
-						label="First name"
+						label="First Name"
 						type="text"
 						id="first"
 						value={person.firstName}
 						onType={handleChange}
 					></Input>
 					<Input
-						label="Last name"
+						label="Last Name"
 						type="text"
 						id="last"
 						value={person.lastName}
@@ -48,7 +48,7 @@ function Personal() {
 						onType={handleChange}
 					></Input>
 					<Input
-						label="Phone"
+						label="Phone Number"
 						type="tel"
 						id="phone"
 						value={person.phoneNumber}
@@ -61,6 +61,21 @@ function Personal() {
 }
 
 function Input({ label, type, id, value, onType }) {
+	if (id === "phone") {
+		return (
+			<label>
+				{label}
+				<br></br>
+				<small>Format: 123-456-789</small>
+				<input
+					type={type}
+					value={value}
+					pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
+					onChange={(e) => onType(e, id)}
+				></input>
+			</label>
+		);
+	}
 	return (
 		<label>
 			{label}
