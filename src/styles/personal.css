@@ -1,0 +1,21 @@
+h2 {
+  color: rgb(103, 125, 106);
+  text-transform: uppercase;
+}
+
+.personal {
+  width: 45%;
+  max-width: 500px;
+}
+
+.personal-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.personal-inputs input {
+  width: 100%;
+}
+
