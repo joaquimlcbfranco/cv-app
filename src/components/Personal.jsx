@@ -1,12 +1,13 @@
 import { useState } from "react";
 import "../styles/personal.css";
 
-function Personal() {
+export default function Personal() {
 	const [person, setPerson] = useState({
 		firstName: "John",
 		lastName: "Doe",
 		email: "johndoe@example.com",
 		phoneNumber: "123-456-789",
+		about: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, quibusdam.",
 	});
 
 	const handleChange = (e, id) => {
@@ -18,6 +19,8 @@ function Personal() {
 			setPerson({ ...person, email: e.target.value });
 		} else if (id === "phone") {
 			setPerson({ ...person, phoneNumber: e.target.value });
+		} else if (id === "about") {
+			setPerson({ ...person, about: e.target.value });
 		}
 	};
 
@@ -54,6 +57,13 @@ function Personal() {
 						value={person.phoneNumber}
 						onType={handleChange}
 					></Input>
+					<Input
+						label="About"
+						type="text"
+						id="about"
+						value={person.about}
+						onType={handleChange}
+					></Input>
 				</div>
 			</section>
 		</>
@@ -61,7 +71,19 @@ function Personal() {
 }
 
 function Input({ label, type, id, value, onType }) {
-	if (id === "phone") {
+	if (id === "about") {
+		return (
+			<label>
+				{label}
+				<textarea
+					type={type}
+					value={value}
+					onChange={(e) => onType(e, id)}
+				></textarea>
+			</label>
+		);
+	}
+	else if (id === "phone") {
 		return (
 			<label>
 				{label}
@@ -87,5 +109,3 @@ function Input({ label, type, id, value, onType }) {
 		</label>
 	);
 }
-
-export { Personal };

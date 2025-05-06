@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/education.css";
 
-function Education() {
+export default function Education() {
   const [education, setEducation] = useState({
     school: "Lorem University",
     title: "Bachelor's in Lorem",
@@ -73,4 +73,4 @@ function Input({ label, type, id, value, onType }) {
   );
 }
 
-export { Education };
+

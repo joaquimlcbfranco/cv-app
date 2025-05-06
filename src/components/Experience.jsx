@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/experience.css";
 
-function Experience() {
+export default function Experience() {
 	const [experience, setExperience] = useState({
 		company: "Lorem Company",
 		title: "Lorem Assistant",
@@ -62,16 +62,16 @@ function Experience() {
 						onType={handleChange}
 					></Input>
 					<Input
-						label="End Date"
-						type="date"
-						id="endDate"
+						label="Location"
+						type="text"
+						id="location"
 						value={experience.location}
 						onType={handleChange}
 					></Input>
 					<Input
-						label="End Date"
-						type="date"
-						id="endDate"
+						label="Description"
+						type=""
+						id="description"
 						value={experience.description}
 						onType={handleChange}
 					></Input>
@@ -82,6 +82,18 @@ function Experience() {
 }
 
 function Input({ label, type, id, value, onType }) {
+	if (id === "description") {
+		return (
+			<label>
+				{label}
+				<textarea
+					type={type}
+					value={value}
+					onChange={(e) => onType(e, id)}
+				></textarea>
+			</label>
+		);
+	}
 	return (
 		<label>
 			{label}
