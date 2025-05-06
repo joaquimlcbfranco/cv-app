@@ -10,9 +10,11 @@ import './style.css'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Header />
-    <Personal />
-    <Education />
-    <Experience />
+    <div className="input-wrapper">
+      <Personal />
+      <Education />
+      <Experience />
+    </div>
     <Footer />
   </StrictMode>,
 )
