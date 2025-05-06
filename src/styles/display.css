@@ -1,0 +1,53 @@
+.display-wrapper {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  margin-top: 3em;
+  width: 100%;
+  max-width: 750px;
+}
+
+.display-header {
+  background-color: rgb(64, 83, 76);
+  padding: 3em;
+}
+
+.display-header h2 {
+  color: rgb(242, 243, 244);
+  font-size: 2.5rem;
+  text-transform: uppercase;
+}
+
+.display-header p {
+  color: rgb(242, 243, 244);
+  font-weight: 600;
+}
+
+.main-info {
+  display: flex;
+  background-color: rgb(242, 243, 244);
+  min-height: 800px;
+}
+
+.left-info {
+  padding: 5em 3em;
+  background-color: rgba(103, 125, 106, 0.5);
+  width: 50%;
+  max-width: 300px;
+}
+
+.left-info .profile-info {
+  margin-bottom: 10em;
+}
+
+.profile-info h3, .contact-info h3 {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+.profile-info p {
+  font-size: 0.9rem;
+}
+
+.right-info {
+  padding: 5em 3em;
+  width: 100%;
+}
