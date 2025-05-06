@@ -5,8 +5,8 @@ function Experience() {
 	const [experience, setExperience] = useState({
 		company: "Lorem Company",
 		title: "Lorem Assistant",
-		startDate: new Date(),
-		endDate: new Date(),
+		startDate: "",
+		endDate: "",
 		location: "Lorem City",
 		description:
 			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure ducimus quam, sed voluptatibus debitis nisi blanditiis qui beatae ipsum libero.",
