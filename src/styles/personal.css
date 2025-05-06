@@ -4,8 +4,8 @@ h2 {
 }
 
 .personal {
-  width: 45%;
-  max-width: 500px;
+  width: 80%;
+  max-width: 400px;
 }
 
 .personal-inputs {
@@ -17,5 +17,15 @@ h2 {
 
 .personal-inputs input {
   width: 100%;
+  padding: 0 0.2em;
+  transition: color 200ms ease-in-out;
 }
 
+.personal-inputs input:not(:focus) {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.personal-inputs input:focus,
+.personal-inputs input:hover {
+  color: rgba(0, 0, 0);
+}

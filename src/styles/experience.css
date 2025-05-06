@@ -4,8 +4,8 @@ h2 {
 }
 
 .experience {
-  width: 45%;
-  max-width: 500px;
+  width: 80%;
+  max-width: 400px;
 }
 
 .experience-inputs {
@@ -17,5 +17,15 @@ h2 {
 
 .experience-inputs input {
   width: 100%;
+  padding: 0 0.2em;
+  transition: color 200ms ease-in-out;
 }
 
+.experience-inputs input:not(:focus) {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.experience-inputs input:focus,
+.experience-inputs input:hover {
+  color: rgba(0, 0, 0);
+}
