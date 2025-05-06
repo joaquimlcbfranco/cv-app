@@ -2,9 +2,10 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
-import { Personal } from './components/Personal.jsx'
-import { Education } from './components/Education.jsx'
-import { Experience } from './components/Experience.jsx'
+import Personal from './components/Personal.jsx'
+import Education from './components/Education.jsx'
+import Experience from './components/Experience.jsx'
+import Display from './components/Display.jsx'
 import './style.css'
 
 createRoot(document.getElementById('root')).render(
@@ -15,6 +16,7 @@ createRoot(document.getElementById('root')).render(
       <Education />
       <Experience />
     </div>
+    <Display />
     <Footer />
   </StrictMode>,
 )
