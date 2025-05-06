@@ -15,17 +15,26 @@ h2 {
 
 
 
-.experience-inputs input {
+.experience-inputs input,
+.experience-inputs textarea {
   width: 100%;
   padding: 0 0.2em;
   transition: color 200ms ease-in-out;
 }
 
-.experience-inputs input:not(:focus) {
+.experience-inputs textarea {
+  height: 10em;
+  resize: vertical;
+}
+
+.experience-inputs input:not(:focus),
+.experience-inputs textarea:not(:focus) {
   color: rgba(0, 0, 0, 0.7);
 }
 
 .experience-inputs input:focus,
-.experience-inputs input:hover {
+.experience-inputs input:hover,
+.experience-inputs textarea:focus,
+.experience-inputs textarea:hover {
   color: rgba(0, 0, 0);
 }

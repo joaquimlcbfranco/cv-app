@@ -15,10 +15,16 @@ h2 {
 
 
 
-.education-inputs input {
+.education-inputs input,
+.education-inputs textarea {
   width: 100%;
   padding: 0 0.2em;
   transition: color 200ms ease-in-out;
+}
+
+.education-inputs textarea {
+  height: 10em;
+  resize: vertical;
 }
 
 .education-inputs input:not(:focus) {

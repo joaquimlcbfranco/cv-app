@@ -15,17 +15,26 @@ h2 {
 
 
 
-.personal-inputs input {
+.personal-inputs input,
+.personal-inputs textarea {
   width: 100%;
   padding: 0 0.2em;
   transition: color 200ms ease-in-out;
 }
 
-.personal-inputs input:not(:focus) {
+.personal-inputs textarea {
+  height: 10em;
+  resize: vertical;
+}
+
+.personal-inputs input:not(:focus),
+.personal-inputs textarea:not(:focus) {
   color: rgba(0, 0, 0, 0.7);
 }
 
 .personal-inputs input:focus,
-.personal-inputs input:hover {
+.personal-inputs input:hover,
+.personal-inputs textarea:focus,
+.personal-inputs textarea:hover {
   color: rgba(0, 0, 0);
 }
