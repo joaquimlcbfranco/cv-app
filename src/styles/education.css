@@ -27,12 +27,15 @@ h2 {
   resize: vertical;
 }
 
-.education-inputs input:not(:focus) {
+.education-inputs input:not(:focus),
+.education-inputs textarea:not(:focus) {
   color: rgba(0, 0, 0, 0.7);
 }
 
 .education-inputs input:focus,
-.education-inputs input:hover {
+.education-inputs input:hover,
+.education-inputs textarea:focus,
+.education-inputs textarea:hover {
   color: rgba(0, 0, 0);
 }
 
