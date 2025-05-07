@@ -1,15 +1,6 @@
-import { useState } from "react";
 import "../styles/personal.css";
 
-export default function Personal() {
-	const [person, setPerson] = useState({
-		firstName: "John",
-		lastName: "Doe",
-		email: "johndoe@example.com",
-		phoneNumber: "123-456-789",
-		about: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, quibusdam.",
-	});
-
+export default function Personal({ person, setPerson }) {
 	const handleChange = (e, id) => {
 		if (id === "first") {
 			setPerson({ ...person, firstName: e.target.value });

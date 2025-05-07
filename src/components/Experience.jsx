@@ -1,17 +1,6 @@
-import { useState } from "react";
 import "../styles/experience.css";
 
-export default function Experience() {
-	const [experience, setExperience] = useState({
-		company: "Lorem Company",
-		title: "Lorem Assistant",
-		startDate: "",
-		endDate: "",
-		location: "Lorem City",
-		description:
-			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure ducimus quam, sed voluptatibus debitis nisi blanditiis qui beatae ipsum libero.",
-	});
-
+export default function Experience({ experience, setExperience }) {
 	const handleChange = (e, id) => {
 		if (id === "school") {
 			setExperience({ ...experience, company: e.target.value });
