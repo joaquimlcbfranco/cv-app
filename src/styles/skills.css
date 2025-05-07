@@ -1,0 +1,32 @@
+h2 {
+  color: rgb(103, 125, 106);
+  text-transform: uppercase;
+}
+
+.skills {
+  width: 80%;
+  max-width: 400px;
+}
+
+.skills-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.skills-inputs input {
+  width: 100%;
+  padding: 0 0.2em;
+  transition: color 200ms ease-in-out;
+  margin-bottom: 0.5em;
+}
+
+.skills-inputs input:not(:focus) {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.skills-inputs input:focus,
+.skills-inputs input:hover {
+  color: rgba(0, 0, 0);
+}
