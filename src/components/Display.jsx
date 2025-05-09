@@ -16,7 +16,6 @@ export default function Display({ person, education, experience, skills }) {
 				<div className="main-info">
 					<div className="left-info">
 						<div className="profile-info">
-							{/* <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqafzhnwwYzuOTjTlaYMeQ7hxQLy_Wq8dnQg&s" alt="Plaholder profile picture"></img> */}
 							<h3>Profile</h3>
 							<div className="separator"></div>
 							<p>{person.about}</p>
@@ -31,41 +30,67 @@ export default function Display({ person, education, experience, skills }) {
 					<div className="right-info">
 						<div className="education-info">
 							<h3>Education</h3>
-							<div className="school-info">
-								<h4>{education.school}</h4>-
-								<p className="title">{education.title}</p>
-							</div>
-							<small>
-								{education.startDate !== ""
-									? format(experience.startDate, "dd/MM/yy")
-									: ""}
-								-
-								{education.endDate !== ""
-									? format(experience.endDate, "dd/MM/yy")
-									: ""}
-							</small>
-							<p className="description">
-								{education.description}
-							</p>
+							{education.map((obj) => {
+								return (
+									<>
+										<div className="school-info">
+											<h4>{obj.school}</h4>-
+											<p className="title">{obj.title}</p>
+										</div>
+										<small>
+											{obj.startDate !== ""
+												? format(
+														obj.startDate,
+														"dd/MM/yy"
+												  )
+												: ""}
+											-
+											{obj.endDate !== ""
+												? format(
+														obj.endDate,
+														"dd/MM/yy"
+												  )
+												: ""}
+										</small>
+										<p className="description">
+											{obj.description}
+										</p>
+									</>
+								);
+							})}
 						</div>
 						<div className="experience-info">
 							<h3>Experience</h3>
-							<div className="company-info">
-								<h4>{experience.company}</h4>-
-								<p className="title">{experience.title}</p>
-							</div>
-							<small>
-								{experience.startDate !== ""
-									? format(experience.startDate, "dd/MM/yy")
-									: ""}
-								-
-								{experience.endDate !== ""
-									? format(experience.endDate, "dd/MM/yy")
-									: ""}
-							</small>
-							<p className="description">
-								{experience.description}
-							</p>
+							{experience.map((obj) => {
+								return (
+									<>
+										<div className="company-info">
+											<h4>{obj.company}</h4>-
+											<p className="title">
+												{obj.title}
+											</p>
+										</div>
+										<small>
+											{obj.startDate !== ""
+												? format(
+                          obj.startDate,
+														"dd/MM/yy"
+												  )
+												: ""}
+											-
+											{obj.endDate !== ""
+												? format(
+                          obj.endDate,
+														"dd/MM/yy"
+												  )
+												: ""}
+										</small>
+										<p className="description">
+											{obj.description}
+										</p>
+									</>
+								);
+							})}
 						</div>
 						<div className="skills-info">
 							<h3>Skills</h3>
