@@ -14,24 +14,28 @@ export default function App() {
 		about: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, quibusdam.",
 	});
 
-	const [education, setEducation] = useState({
-		school: "Lorem University",
-		title: "Bachelor's in Lorem",
-		description:
-			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe natus ullam distinctio. Ipsam, eum temporibus vitae dolorum praesentium necessitatibus officiis",
-		startDate: "",
-		endDate: "",
-	});
+	const [education, setEducation] = useState([
+		{
+      key: 0,
+			school: "Lorem University",
+			title: "Bachelor's in Lorem",
+			description:
+				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe natus ullam distinctio. Ipsam, eum temporibus vitae dolorum praesentium necessitatibus officiis",
+			startDate: "",
+			endDate: "",
+		},
+	]);
 
-	const [experience, setExperience] = useState({
-		company: "Lorem Company",
-		title: "Lorem Assistant",
-		startDate: "",
-		endDate: "",
-		location: "Lorem City",
-		description:
-			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure ducimus quam, sed voluptatibus debitis nisi blanditiis qui beatae ipsum libero.",
-	});
+	const [experience, setExperience] = useState([
+		{
+			company: "Lorem Company",
+			title: "Lorem Assistant",
+			startDate: "",
+			endDate: "",
+			description:
+				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure ducimus quam, sed voluptatibus debitis nisi blanditiis qui beatae ipsum libero.",
+		},
+	]);
 
 	const [skills, setSkills] = useState([
 		{ id: 0, value: "HTML" },
@@ -54,7 +58,7 @@ export default function App() {
 				person={person}
 				education={education}
 				experience={experience}
-        skills={skills}
+				skills={skills}
 			/>
 		</>
 	);
