@@ -13,46 +13,67 @@ export default function Education({ education, setEducation }) {
 		}
 	};
 
+	const handleNewSection = () => {
+		const newKey = education.reduce((prevObj, biggest) => {
+			if (prevObj.key > biggest) return prevObj.key
+			return biggest.key
+		}, 0)
+		console.log(newKey);
+		setEducation([
+			...education,
+			{ key: newKey + 1, school: "", title: "", startDate: "", endDate: "" },
+		]);
+	};
+
+	console.log(education);
+
 	return (
 		<>
 			<section className="education">
 				<div className="education-inputs">
 					<h2>Education</h2>
-					<Input
-						label="School"
-						type="text"
-						id="school"
-						value={education.school}
-						onType={handleChange}
-					></Input>
-					<Input
-						label="Title"
-						type="text"
-						id="title"
-						value={education.title}
-						onType={handleChange}
-					></Input>
-					<Input
-						label="Start Date"
-						type="date"
-						id="startDate"
-						value={education.startDate}
-						onType={handleChange}
-					></Input>
-					<Input
-						label="End Date"
-						type="date"
-						id="endDate"
-						value={education.endDate}
-						onType={handleChange}
-					></Input>
-					<Input
-						label="Description"
-						type="text"
-						id="description"
-						value={education.description}
-						onType={handleChange}
-					></Input>
+					{education.map((obj) => {
+						return (
+							<>
+								<Input
+									label="School"
+									type="text"
+									id="school"
+									value={obj.school}
+									onType={handleChange}
+								></Input>
+								<Input
+									label="Title"
+									type="text"
+									id="title"
+									value={obj.title}
+									onType={handleChange}
+								></Input>
+								<Input
+									label="Start Date"
+									type="date"
+									id="startDate"
+									value={obj.startDate}
+									onType={handleChange}
+								></Input>
+								<Input
+									label="End Date"
+									type="date"
+									id="endDate"
+									value={obj.endDate}
+									onType={handleChange}
+								></Input>
+								<Input
+									label="Description"
+									type="text"
+									id="description"
+									value={obj.description}
+									onType={handleChange}
+								></Input>
+							</>
+						);
+					})}
+					<button onClick={handleNewSection}>Add section</button>
 				</div>
 			</section>
 		</>
