@@ -1,31 +1,72 @@
 import "../styles/education.css";
+import { Fragment } from "react";
 
 export default function Education({ education, setEducation }) {
-	const handleChange = (e, id) => {
+	const handleChange = (e, key, id) => {
 		if (id === "school") {
-			setEducation({ ...education, school: e.target.value });
+			setEducation(
+				education.map((obj) => {
+					if (obj.key === key) {
+						return { ...obj, school: e.target.value };
+					}
+					return obj;
+				})
+			);
 		} else if (id === "title") {
-			setEducation({ ...education, title: e.target.value });
+			setEducation(
+				education.map((obj) => {
+					if (obj.key === key) {
+						return { ...obj, title: e.target.value };
+					}
+					return obj;
+				})
+			);
 		} else if (id === "startDate") {
-			setEducation({ ...education, startDate: e.target.value });
+			setEducation(
+				education.map((obj) => {
+					if (obj.key === key) {
+						return { ...obj, startDate: e.target.value };
+					}
+					return obj;
+				})
+			);
 		} else if (id === "endDate") {
-			setEducation({ ...education, endDate: e.target.value });
+			setEducation(
+				education.map((obj) => {
+					if (obj.key === key) {
+						return { ...obj, endDate: e.target.value };
+					}
+					return obj;
+				})
+			);
+		} else if (id === "description") {
+			setEducation(
+				education.map((obj) => {
+					if (obj.key === key) {
+						return { ...obj, description: e.target.value };
+					}
+					return obj;
+				})
+			);
 		}
 	};
 
 	const handleNewSection = () => {
 		const newKey = education.reduce((prevObj, biggest) => {
-			if (prevObj.key > biggest) return prevObj.key
-			return biggest.key
-		}, 0)
-		console.log(newKey);
+			if (prevObj.key > biggest) return prevObj.key;
+			return biggest.key;
+		}, 0);
 		setEducation([
 			...education,
-			{ key: newKey + 1, school: "", title: "", startDate: "", endDate: "" },
+			{
+				key: newKey + 1,
+				school: "",
+				title: "",
+				startDate: "",
+				endDate: "",
+			},
 		]);
 	};
-
-	console.log(education);
 
 	return (
 		<>
@@ -34,8 +75,9 @@ export default function Education({ education, setEducation }) {
 					<h2>Education</h2>
 					{education.map((obj) => {
 						return (
-							<>
+							<Fragment key={obj.key}>
 								<Input
+									dataKey={obj.key}
 									label="School"
 									type="text"
 									id="school"
@@ -43,6 +85,7 @@ export default function Education({ education, setEducation }) {
 									onType={handleChange}
 								></Input>
 								<Input
+									dataKey={obj.key}
 									label="Title"
 									type="text"
 									id="title"
@@ -50,6 +93,7 @@ export default function Education({ education, setEducation }) {
 									onType={handleChange}
 								></Input>
 								<Input
+									dataKey={obj.key}
 									label="Start Date"
 									type="date"
 									id="startDate"
@@ -57,6 +101,7 @@ export default function Education({ education, setEducation }) {
 									onType={handleChange}
 								></Input>
 								<Input
+									dataKey={obj.key}
 									label="End Date"
 									type="date"
 									id="endDate"
@@ -64,23 +109,25 @@ export default function Education({ education, setEducation }) {
 									onType={handleChange}
 								></Input>
 								<Input
+									dataKey={obj.key}
 									label="Description"
 									type="text"
 									id="description"
 									value={obj.description}
 									onType={handleChange}
 								></Input>
-							</>
+								<div className="education-separator"></div>
+							</Fragment>
 						);
 					})}
-					<button onClick={handleNewSection}>Add section</button>
+					<button onClick={handleNewSection}>Add Education</button>
 				</div>
 			</section>
 		</>
 	);
 }
 
-function Input({ label, type, id, value, onType }) {
+function Input({ dataKey, label, type, id, value, onType }) {
 	if (id === "description") {
 		return (
 			<label>
@@ -88,7 +135,7 @@ function Input({ label, type, id, value, onType }) {
 				<textarea
 					type={type}
 					value={value}
-					onChange={(e) => onType(e, id)}
+					onChange={(e) => onType(e, dataKey, id)}
 				></textarea>
 			</label>
 		);
@@ -99,7 +146,7 @@ function Input({ label, type, id, value, onType }) {
 			<input
 				type={type}
 				value={value}
-				onChange={(e) => onType(e, id)}
+				onChange={(e) => onType(e, dataKey, id)}
 			></input>
 		</label>
 	);
