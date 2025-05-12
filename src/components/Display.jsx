@@ -66,21 +66,19 @@ export default function Display({ person, education, experience, skills }) {
 									<>
 										<div className="company-info">
 											<h4>{obj.company}</h4>-
-											<p className="title">
-												{obj.title}
-											</p>
+											<p className="title">{obj.title}</p>
 										</div>
 										<small>
 											{obj.startDate !== ""
 												? format(
-                          obj.startDate,
+														obj.startDate,
 														"dd/MM/yy"
 												  )
 												: ""}
 											-
 											{obj.endDate !== ""
 												? format(
-                          obj.endDate,
+														obj.endDate,
 														"dd/MM/yy"
 												  )
 												: ""}
@@ -96,9 +94,10 @@ export default function Display({ person, education, experience, skills }) {
 							<h3>Skills</h3>
 							<ul>
 								{skills.map((skill) => {
-									return (
-										<li key={skill.id}>{skill.value}</li>
-									);
+									if (skills[0].value == skill.value) {
+										return skill.value;
+									}
+                  return ', ' + skill.value;
 								})}
 							</ul>
 						</div>
