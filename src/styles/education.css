@@ -13,8 +13,6 @@ h2 {
   flex-direction: column;
 }
 
-
-
 .education-inputs input,
 .education-inputs textarea {
   width: 100%;
@@ -39,3 +37,15 @@ h2 {
   color: rgba(0, 0, 0);
 }
 
+.education-separator {
+  width: 100%;
+  height: 1px;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  background-color: rgb(64, 83, 76);
+  width: 100%;
+}
+
+.education-inputs button {
+  cursor: pointer;
+}

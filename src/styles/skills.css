@@ -30,3 +30,7 @@ h2 {
 .skills-inputs input:hover {
   color: rgba(0, 0, 0);
 }
+
+.skills-inputs button {
+  cursor: pointer;
+}
