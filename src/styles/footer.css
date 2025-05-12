@@ -1,11 +1,16 @@
 .footer {
-  text-align: center;
-  font-size: 1rem;
-  color: rgb(26, 54, 54);
-  padding: 2em;
+	text-align: center;
+	font-size: 1rem;
+	color: rgb(26, 54, 54);
+	padding: 2em;
 }
 
 .footer a {
-  text-decoration: none;
-  color: rgb(103, 125, 106)
+	text-decoration: none;
+	color: rgb(103, 125, 106);
+  transition: color 200ms ease-in-out;
+}
+
+.footer a:hover {
+	color: rgb(119, 171, 126);
 }
