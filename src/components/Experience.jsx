@@ -1,18 +1,71 @@
 import "../styles/experience.css";
+import { Fragment } from "react";
 
 export default function Experience({ experience, setExperience }) {
-	const handleChange = (e, id) => {
+	const handleChange = (e, key, id) => {
 		if (id === "company") {
-			setExperience({ ...experience, company: e.target.value });
+			setExperience(
+				experience.map((obj) => {
+					if (obj.key === key) {
+						return { ...obj, company: e.target.value };
+					}
+					return obj;
+				})
+			);
 		} else if (id === "title") {
-			setExperience({ ...experience, title: e.target.value });
+			setExperience(
+				experience.map((obj) => {
+					if (obj.key === key) {
+						return { ...obj, title: e.target.value };
+					}
+					return obj;
+				})
+			);
 		} else if (id === "startDate") {
-			setExperience({ ...experience, startDate: e.target.value });
+			setExperience(
+				experience.map((obj) => {
+					if (obj.key === key) {
+						return { ...obj, startDate: e.target.value };
+					}
+					return obj;
+				})
+			);
 		} else if (id === "endDate") {
-			setExperience({ ...experience, endDate: e.target.value });
+			setExperience(
+				experience.map((obj) => {
+					if (obj.key === key) {
+						return { ...obj, endDate: e.target.value };
+					}
+					return obj;
+				})
+			);
 		} else if (id === "description") {
-			setExperience({ ...experience, description: e.target.value });
+			setExperience(
+				experience.map((obj) => {
+					if (obj.key === key) {
+						return { ...obj, description: e.target.value };
+					}
+					return obj;
+				})
+			);
 		}
+	};
+
+	const handleNewSection = () => {
+		const newKey = experience.reduce((prevObj, biggest) => {
+			if (prevObj.key > biggest) return prevObj.key;
+			return biggest.key;
+		}, 0);
+		setExperience([
+			...experience,
+			{
+				key: newKey + 1,
+				company: "",
+				title: "",
+				startDate: "",
+				endDate: "",
+			},
+		]);
 	};
 
 	return (
@@ -22,8 +75,9 @@ export default function Experience({ experience, setExperience }) {
 					<h2>Experience</h2>
 					{experience.map((obj) => {
 						return (
-							<>
+							<Fragment key={obj.key}>
 								<Input
+									dataKey={obj.key}
 									label="Company"
 									type="text"
 									id="company"
@@ -31,6 +85,7 @@ export default function Experience({ experience, setExperience }) {
 									onType={handleChange}
 								></Input>
 								<Input
+									dataKey={obj.key}
 									label="Title"
 									type="text"
 									id="title"
@@ -38,6 +93,7 @@ export default function Experience({ experience, setExperience }) {
 									onType={handleChange}
 								></Input>
 								<Input
+									dataKey={obj.key}
 									label="Start Date"
 									type="date"
 									id="startDate"
@@ -45,6 +101,7 @@ export default function Experience({ experience, setExperience }) {
 									onType={handleChange}
 								></Input>
 								<Input
+									dataKey={obj.key}
 									label="End Date"
 									type="date"
 									id="endDate"
@@ -52,22 +109,25 @@ export default function Experience({ experience, setExperience }) {
 									onType={handleChange}
 								></Input>
 								<Input
+									dataKey={obj.key}
 									label="Description"
 									type=""
 									id="description"
 									value={obj.description}
 									onType={handleChange}
 								></Input>
-							</>
+								<div className="experience-separator"></div>
+							</Fragment>
 						);
 					})}
+					<button onClick={handleNewSection}>Add Experience</button>
 				</div>
 			</section>
 		</>
 	);
 }
 
-function Input({ label, type, id, value, onType }) {
+function Input({ dataKey, label, type, id, value, onType }) {
 	if (id === "description") {
 		return (
 			<label>
@@ -75,7 +135,7 @@ function Input({ label, type, id, value, onType }) {
 				<textarea
 					type={type}
 					value={value}
-					onChange={(e) => onType(e, id)}
+					onChange={(e) => onType(e, dataKey, id)}
 				></textarea>
 			</label>
 		);
@@ -86,7 +146,7 @@ function Input({ label, type, id, value, onType }) {
 			<input
 				type={type}
 				value={value}
-				onChange={(e) => onType(e, id)}
+				onChange={(e) => onType(e, dataKey, id)}
 			></input>
 		</label>
 	);
