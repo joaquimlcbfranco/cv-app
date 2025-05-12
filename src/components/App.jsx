@@ -16,18 +16,19 @@ export default function App() {
 
 	const [education, setEducation] = useState([
 		{
-      key: 0,
+			key: 0,
 			school: "Lorem University",
 			title: "Bachelor's in Lorem",
-			description:
-				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe natus ullam distinctio. Ipsam, eum temporibus vitae dolorum praesentium necessitatibus officiis",
 			startDate: "",
 			endDate: "",
+			description:
+				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe natus ullam distinctio. Ipsam, eum temporibus vitae dolorum praesentium necessitatibus officiis",
 		},
 	]);
 
 	const [experience, setExperience] = useState([
 		{
+			key: 0,
 			company: "Lorem Company",
 			title: "Lorem Assistant",
 			startDate: "",
