@@ -33,4 +33,10 @@ h2 {
 
 .skills-inputs button {
   cursor: pointer;
+  border: 1px solid black;
+  transition: background-color 200ms ease-in-out;
+}
+
+.add-button:hover {
+  background-color: rgb(219, 255, 224);
 }
