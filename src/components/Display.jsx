@@ -28,7 +28,7 @@ export default function Display({ person, education, experience, skills }) {
 					</div>
 					<div className="right-info">
 						<div className="education-info">
-							<h3>Education</h3>
+							{education.length !== 0 ? <h3>Education</h3> : ""}
 							{education.map((obj) => {
 								return (
 									<>
@@ -59,7 +59,7 @@ export default function Display({ person, education, experience, skills }) {
 							})}
 						</div>
 						<div className="experience-info">
-							<h3>Experience</h3>
+							{experience.length !== 0 ? <h3>Experience</h3> : ""}
 							{experience.map((obj) => {
 								return (
 									<>
@@ -96,7 +96,7 @@ export default function Display({ person, education, experience, skills }) {
 									if (skills[0].value == skill.value) {
 										return skill.value;
 									}
-                  return ', ' + skill.value;
+									return ", " + skill.value;
 								})}
 							</ul>
 						</div>
