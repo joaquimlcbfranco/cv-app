@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "../styles/display.css";
 import { format } from "date-fns";
 
