@@ -68,6 +68,10 @@ export default function Experience({ experience, setExperience }) {
 		]);
 	};
 
+	const deleteSection = (key) => {
+		setExperience(experience.filter(obj => obj.key !== key));
+	}
+
 	return (
 		<>
 			<section className="experience">
@@ -116,11 +120,12 @@ export default function Experience({ experience, setExperience }) {
 									value={obj.description}
 									onType={handleChange}
 								></Input>
-								<div className="experience-separator"></div>
+								<button className="delete-button" onClick={() => deleteSection(obj.key)}>Delete Section</button>
 							</Fragment>
 						);
 					})}
-					<button onClick={handleNewSection}>Add Experience</button>
+					<button className="add-button" onClick={handleNewSection}>Add Experience</button>
+					<div className="experience-separator"></div>
 				</div>
 			</section>
 		</>

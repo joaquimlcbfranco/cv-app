@@ -68,6 +68,10 @@ export default function Education({ education, setEducation }) {
 		]);
 	};
 
+	const deleteSection = (key) => {
+		setEducation(education.filter(obj => obj.key !== key))
+	}
+
 	return (
 		<>
 			<section className="education">
@@ -116,11 +120,12 @@ export default function Education({ education, setEducation }) {
 									value={obj.description}
 									onType={handleChange}
 								></Input>
-								<div className="education-separator"></div>
+								<button className="delete-button" onClick={() => deleteSection(obj.key)}>Delete Section</button>
 							</Fragment>
 						);
 					})}
-					<button onClick={handleNewSection}>Add Education</button>
+					<button className="add-button" onClick={handleNewSection}>Add Education</button>
+					<div className="education-separator"></div>
 				</div>
 			</section>
 		</>
