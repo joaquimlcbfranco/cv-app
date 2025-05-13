@@ -10,9 +10,13 @@ export default function Skills({ skills, setSkills }) {
 		setSkills(newArray);
 	};
 
-  const handleNewSection = () => {
-    setSkills([...skills, ""]);
-  }
+	const handleNewSection = () => {
+		const newIndex = skills.reduce((previous, biggest) => {
+			if (previous.id > biggest) return previous.id;
+			return biggest;
+		}, 0);
+		setSkills([...skills, {id: newIndex + 1, value: ""}]);
+	};
 
 	return (
 		<>
@@ -28,7 +32,7 @@ export default function Skills({ skills, setSkills }) {
 							onType={handleChange}
 						></Input>
 					))}
-          <button onClick={handleNewSection}>Add Skill</button>
+					<button onClick={handleNewSection}>Add Skill</button>
 				</div>
 			</section>
 		</>
